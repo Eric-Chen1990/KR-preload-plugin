@@ -1,0 +1,17 @@
+<krpano>
+<!-- 
+    maxlevel: Maximum level of preloaded tiles. Default preload all.
+    onloading: Will be triggered after each image is loaded. Can be used to update progress.
+    percentage: Current loading progress. Read only.
+-->
+    <plugin name="preload"
+        url="./preload.js"
+        maxlevel="1"
+        onloading="calc(layer[preloading_percentage].html,percentage+'%');if(percentage === 100,tween(layer[preloading_page].alpha,0));"
+        keep="true"
+    ></plugin>
+
+    <layer name="preloading_page" type="container" autoalpha="true" width="100%" height="100%" bgalpha="1" zorder="99" keep="true">
+        <layer name="preloading_percentage" type="text" html="0%" bg="false" align="center" css="font-size:28px;color: #ffffff;" />
+    </layer>
+</krpano>
